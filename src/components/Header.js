@@ -1,6 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import { addFeature, removeFeature } from './actions/featuresActions';
 
 const Header = props => {
+  // console.log('header props', props)
   return (
     <>
       <figure className="image is-128x128">
@@ -12,4 +16,10 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, { addFeature })(Header);
