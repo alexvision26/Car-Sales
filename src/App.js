@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import { connect } from 'react-redux';
 
-import { featuresReducer } from './components/reducers/featuresReducer';
+import { featuresReducer, initialState } from './components/reducers/featuresReducer';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -9,6 +9,8 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 const App = props => {
+
+  const [state, dispatch] = useReducer(featuresReducer, initialState)
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
@@ -19,11 +21,7 @@ const App = props => {
 
   const buyItem = item => {
     // dipsatch an action here to add an item
-    const ADD_FEATURE = 'ADD_FEATURE';
-    return {
-      type: ADD_FEATURE,
-      payload: item.feature.id
-    }
+    dispatch({ type: 'ADD_FEATURE' })
     
   };
 

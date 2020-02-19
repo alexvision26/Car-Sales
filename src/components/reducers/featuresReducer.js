@@ -22,16 +22,17 @@ export const featuresReducer = (state = initialState, action) => {
     switch(action.type) {
       
     case 'ADD_FEATURE':
-      // console.log(state, action)
-      // state.additionalFeatures.map(item => {
-      //   if (action.payload === item.id) {
-      //     state.features.push(item)
-      //   } else {
-      //     return state;
-      //   }
-      // })
-      console.log(action.payload)
-    return {...state}
+    //  const newFeature = state.additionalFeatures.map(item => {
+    //    if (action.payload === item.id) {
+    //      return { id: item.id, name: item.name, price: item.price}
+    //    } else {
+    //     return null;
+    //    }
+    //  })
+     return{
+        ...state,
+        // features: [...state.features, newFeature]
+     }
         default:
             return state;
     }
